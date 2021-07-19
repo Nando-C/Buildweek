@@ -9,18 +9,19 @@ const People = (props) => {
   
   useEffect(() => {
     const getProfiles = async () => {
+      const apiURL = process.env.REACT_APP_BE_URL
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MTEwNjI5MTkzMDAwMTU2MGFiOTQiLCJpYXQiOjE2MjM2NTg3NTksImV4cCI6MTYyNDg2ODM1OX0.wSLELEDQ8EvVaUT7VwhhllP7b8dSxFmkatWvybYtSvI",
-          },
-        }
+        `${apiURL}/profile`
+        // {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MTEwNjI5MTkzMDAwMTU2MGFiOTQiLCJpYXQiOjE2MjM2NTg3NTksImV4cCI6MTYyNDg2ODM1OX0.wSLELEDQ8EvVaUT7VwhhllP7b8dSxFmkatWvybYtSvI",
+        //   },
+        // }
       );
       let profiles = await response.json();
-      console.log("profiles", profiles);
-      setProfile(profiles);
+      console.log("profiles", profiles.profiles);
+      setProfile(profiles.profiles);
     };
     getProfiles();
   }, []);
