@@ -114,11 +114,13 @@ const ProfileSection = ({obj}) => {
           className="w-100 "
           src="https://picsum.photos/200/300"
         />
+        <Image src={obj?.image} onClick={handleShow2} id="ember47" height="150" width="150" roundedCircle />
+
        
-        <img onClick={handleShow2} width="150" src={obj?.image}
+        {/* <img onClick={handleShow2} width="150" src={obj?.image}
           height="150" alt="Edited"
           id="ember47"
-          className="profile-photo-edit__preview ember-view" />
+          className="profile-photo-edit__preview ember-view" /> */}
         <Card.Body>
           <Container className='mt-3'>
             <Row>
