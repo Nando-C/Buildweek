@@ -50,26 +50,32 @@ const ProfileSection = ({obj}) => {
   const editProfile = async (e) => {
     e.preventDefault() 
 
-    // console.log(profile)
-    const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
+    console.log(profile)
+    // const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
     try {
-        const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/`, {
+      const apiURL = process.env.REACT_APP_BE_URL
+      const _id = obj._id
+        const response = await fetch(
+          // `https://striveschool-api.herokuapp.com/api/profile/`, 
+          `${apiURL}/profile/${_id}`,
+          {
             method: 'PUT',
             body: JSON.stringify(profile),
             headers: {
-                "Authorization": `Bearer ${apiToken}`,
+            //     "Authorization": `Bearer ${apiToken}`,
                 "Content-type": "application/json"
             }
         })
         if(response.ok) {
+            console.log(response);
             const data = await response.json()
             console.log(data)
             setShow(false)
         } else {
             console.log('we had a problem')
         }
-        const data = await response.json()
-        console.log(data)
+        // const data = await response.json()
+        // console.log(data)
        
     } catch (err) {
         console.log(err)
@@ -84,16 +90,21 @@ const ProfileSection = ({obj}) => {
   const editPicture = async (e) => {
 
     const newPicture = new FormData()
-    newPicture.append('profile', e.target.files[0])
+    newPicture.append('image', e.target.files[0])
 
-    const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
+    // const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
     try {
-        const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/60c89716c193050015871546/picture`, {
+      const apiURL = process.env.REACT_APP_BE_URL
+      const _id = obj._id
+        const response = await fetch(
+          // `https://striveschool-api.herokuapp.com/api/profile/60c89716c193050015871546/picture`,
+          `${apiURL}/profile/${_id}/picture`,
+          {
             method: 'POST',
             body: newPicture,
-            headers: {
-                "Authorization": `Bearer ${apiToken}`,
-            }
+            // headers: {
+            //     "Authorization": `Bearer ${apiToken}`,
+            // }
         })
         if(response.ok) {
             setShow(false)
@@ -116,7 +127,6 @@ const ProfileSection = ({obj}) => {
         />
         <Image src={obj?.image} onClick={handleShow2} id="ember47" height="150" width="150" roundedCircle />
 
-       
         {/* <img onClick={handleShow2} width="150" src={obj?.image}
           height="150" alt="Edited"
           id="ember47"
