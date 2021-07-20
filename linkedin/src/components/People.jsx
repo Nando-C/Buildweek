@@ -1,33 +1,66 @@
 import { useState, useEffect } from "react";
-import { Card, Container, Row, Col,  ListGroup } from "react-bootstrap";
+import { Card, Container, Row, Col, Pagination,  ListGroup } from "react-bootstrap";
 
 import DefaultProfile from "../assets/default_profile.jpeg"
 
 const People = (props) => {
   const [profile, setProfile] = useState(null);
+  const [total, setTotal] = useState(null);
+  const [links, setLinks] = useState(null);
 
+  const getProfiles = async (pag='/profile?limit=2') => {
+    const apiURL = process.env.REACT_APP_BE_URL
+    let response = await fetch(
+      `${apiURL}${pag}`
+      // {
+      //   headers: {
+      //     Authorization:
+      //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MTEwNjI5MTkzMDAwMTU2MGFiOTQiLCJpYXQiOjE2MjM2NTg3NTksImV4cCI6MTYyNDg2ODM1OX0.wSLELEDQ8EvVaUT7VwhhllP7b8dSxFmkatWvybYtSvI",
+      //   },
+      // }
+    );
+    let profiles = await response.json();
+    console.log("profiles", profiles.profiles);
+    setProfile(profiles.profiles);
+    setTotal(profiles.total);
+    setLinks(profiles.links)
+  };
   
   useEffect(() => {
-    const getProfiles = async () => {
-      const apiURL = process.env.REACT_APP_BE_URL
-      let response = await fetch(
-        `${apiURL}/profile`
-        // {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MTEwNjI5MTkzMDAwMTU2MGFiOTQiLCJpYXQiOjE2MjM2NTg3NTksImV4cCI6MTYyNDg2ODM1OX0.wSLELEDQ8EvVaUT7VwhhllP7b8dSxFmkatWvybYtSvI",
-        //   },
-        // }
-      );
-      let profiles = await response.json();
-      console.log("profiles", profiles.profiles);
-      setProfile(profiles.profiles);
-    };
+    // const getProfiles = async () => {
+    //   const apiURL = process.env.REACT_APP_BE_URL
+    //   let response = await fetch(
+    //     `${apiURL}${pag}`
+    //     // {
+    //     //   headers: {
+    //     //     Authorization:
+    //     //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MTEwNjI5MTkzMDAwMTU2MGFiOTQiLCJpYXQiOjE2MjM2NTg3NTksImV4cCI6MTYyNDg2ODM1OX0.wSLELEDQ8EvVaUT7VwhhllP7b8dSxFmkatWvybYtSvI",
+    //     //   },
+    //     // }
+    //   );
+    //   let profiles = await response.json();
+    //   console.log("profiles", profiles.profiles);
+    //   setProfile(profiles.profiles);
+    //   setTotal(profiles.total);
+    //   setLinks(profiles.links)
+    // };
     getProfiles();
   }, []);
 
   return (<>
     <Container fluid className="px-0">
+      {links !== null 
+      ? <Row className='justify-content-center mt-4'>
+          <Pagination>
+            {links?.first && <Pagination.First onClick={()=> getProfiles(links?.first)}/>} 
+            {links?.prev && <Pagination.Prev onClick={()=> getProfiles(links?.prev)}/>}
+            {links?.next && <Pagination.Next onClick={()=> getProfiles(links?.next)}/>}
+            {links?.last && <Pagination.Last onClick={()=> getProfiles(links?.last)}/>}
+            <Pagination.Item className='ml-5'>{total} Results</Pagination.Item>
+          </Pagination>
+        </Row>
+      : <></>
+    }
       {
 
         profile?.map(el => {

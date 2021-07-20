@@ -178,7 +178,7 @@ const ProfileSection = ({obj}) => {
 
       <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Intro</Modal.Title>
+          <Modal.Title>Edit Profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={e => editProfile(e)}>
@@ -223,7 +223,7 @@ const ProfileSection = ({obj}) => {
     
       {/*============= Modal for the Profile Picture =============*/}
       <Modal size="lg" show={show2} onHide={handleClose2}>
-        <Modal.Header className='text-white bg-dark border-bottom-0 ' closeButton>
+        <Modal.Header className='text-white bg-dark border-bottom-0 ' closeButton='white'>
           <Modal.Title >Profile Photo</Modal.Title>
         </Modal.Header>
         <Modal.Body className='text-white bg-dark'>
