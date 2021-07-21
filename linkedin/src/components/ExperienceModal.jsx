@@ -35,13 +35,17 @@ class ExperienceModal extends Component {
 
         const userId = this.props.userId
         const expId = this.state.experience._id
-        const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
+        const apiURL = process.env.REACT_APP_BE_URL
+        // const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
         try {
-            const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`, {
+            const response = await fetch(
+                `${apiURL}/profile/${userId}/experiences/${expId}`,
+                // `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`, 
+                {
                 method: 'PUT',
                 body: JSON.stringify(this.state.experience),
                 headers: {
-                    "Authorization": `Bearer ${apiToken}`,
+                    // "Authorization": `Bearer ${apiToken}`,
                     "Content-type": "application/json"
                 }
             })
@@ -63,13 +67,17 @@ class ExperienceModal extends Component {
 
         const userId = this.props.userId
         const expId = this.state.experience._id
-        const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
+        const apiURL = process.env.REACT_APP_BE_URL
+        // const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
         try {
-            const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`, {
+            const response = await fetch(
+                `${apiURL}/profile/${userId}/experiences/${expId}`,
+                // `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`, 
+                {
                 method: 'DELETE',
-                headers: {
-                    "Authorization": `Bearer ${apiToken}`,
-                }
+                // headers: {
+                //     "Authorization": `Bearer ${apiToken}`,
+                // }
             })
             if(response.ok) {
                 // const data = await response.json()
@@ -88,23 +96,28 @@ class ExperienceModal extends Component {
 
         const userId = this.props.userId
         const expId = this.state.experience._id
+        const apiURL = process.env.REACT_APP_BE_URL
         console.log(userId)
         console.log(expId)
         
         const newLogo = new FormData()
-        newLogo.append('experience', e.target.files[0])
+        newLogo.append('image', e.target.files[0])
+        // newLogo.append('experience', e.target.files[0])
 
         // console.log(e.target.files[0])
         // console.log(newLogo)
     
-        const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
+        // const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
         try {
-            const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}/picture`, {
+            const response = await fetch(
+                `${apiURL}/profile/${userId}/experiences/${expId}/picture`,
+                // `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}/picture`, 
+                {
                 method: 'POST',
                 body: newLogo,
-                headers: {
-                    "Authorization": `Bearer ${apiToken}`,
-                }
+                // headers: {
+                //     "Authorization": `Bearer ${apiToken}`,
+                // }
             })
             if(response.ok) {
                 console.log(response)

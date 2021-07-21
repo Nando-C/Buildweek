@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Card, Button, Modal, Form, Image } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Modal, Form, Image, Dropdown, DropdownButton } from "react-bootstrap";
 import About from "./About";
 // import { propTypes } from "react-bootstrap/esm/Image";
 
@@ -160,6 +160,16 @@ const ProfileSection = ({obj}) => {
                   <Button variant="outline-secondary" className="badge-pill m-1">
                     More
                   </Button>
+                  <DropdownButton title='More' variant="outline-secondary" className="badge-pill m-1">
+                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                  </DropdownButton>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                    <path d="M21 14v5a3 3 0 01-3 3H6a3 3 0 01-3-3v-5h2v5a1 1 0 001 1h12a1 1 0 001-1v-5zm-4-.57V11l-4 2.85V3h-2v10.85L7 11v2.43L12 17z"></path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                    <path d="M15.5 2H4v20h16V6.5zM6 20V4h8v4h4v12z"></path>
+                  </svg>
                 </div>
               </Col>
               <Col style={{ textAlign: 'right' }}>
