@@ -1,15 +1,15 @@
 import React, { Component, } from 'react';
 
-import { Card, Button, ListGroup } from 'react-bootstrap';
+import { Card, ListGroup } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faBookmark } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedinIn,  } from '@fortawesome/free-brands-svg-icons'
+// import { faLinkedinIn,  } from '@fortawesome/free-brands-svg-icons'
 
 // import DefaultProfile from "../assets/default_profile.jpeg"
-import MiniVideoCard from "./mini-video-card"
+// import MiniVideoCard from "./mini-video-card"
 
 import LinkHead from "../assets/linkedHead.png"
 
@@ -28,7 +28,7 @@ class HomeProf extends Component {
       return (
                 <Card fluid="true" className="d-flex px-0 border-0">
                 <Card.Img fluid="true" variant="top" src={LinkHead} style={{ borderRadius: "10px 10px 0px 0px"}} />
-                <img src={this.props.profile?.image} 
+                <img src={this.props.profile?.image} alt='profile'
                 className="rounded-circle mx-auto border border-white" style={{ height: "80px", width: "80px", position: "relative", bottom: "40px" }} 
                 // {this.props.profImg}
                 />

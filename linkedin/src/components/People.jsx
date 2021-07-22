@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, Container, Row, Col, Pagination,  ListGroup } from "react-bootstrap";
+import { Card, Container, Row, Col, Pagination } from "react-bootstrap";
 
 import DefaultProfile from "../assets/default_profile.jpeg"
 
