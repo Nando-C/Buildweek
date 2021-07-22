@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Card, Button, Modal, Form, Image } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Modal, Form, Image, Dropdown, DropdownButton } from "react-bootstrap";
+import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import About from "./About";
 // import { propTypes } from "react-bootstrap/esm/Image";
 
@@ -115,6 +116,30 @@ const ProfileSection = ({obj}) => {
         console.log(err)
     }
   }
+  const apiURL = process.env.REACT_APP_BE_URL
+  const _id = obj?._id
+
+  const getCVPdf = async () => {
+    try {
+      const apiURL = process.env.REACT_APP_BE_URL
+      const _id = obj._id
+
+      const response = await fetch(
+        `${apiURL}/profile/${_id}/CV`
+      )
+      if(response.ok) {
+        console.log("CV pdf was successfully generated!!");
+        // console.log(response);
+        // const cv = await response.blob()
+        // console.log(cv);
+      } else {
+        console.log('Error generating the CV pdf file');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
   return (
     <>
@@ -150,16 +175,36 @@ const ProfileSection = ({obj}) => {
                     </span>
                   </div>
                 </Card.Text>
-                <div className="d-block">
+                <div className="d-flex">
                   <Button variant="primary" className="badge-pill m-1">
                     Open To
                   </Button>
                   <Button variant="outline-secondary" className="badge-pill m-1">
                     Add section
                   </Button>
-                  <Button variant="outline-secondary" className="badge-pill m-1">
+                  {/* <Button variant="outline-secondary" className="badge-pill m-1">
                     More
-                  </Button>
+                  </Button> */}
+                  
+                  <DropdownButton id="dropdown-profile" title='More' variant="outline-secondary" className=''>
+                    {/* <Dropdown.Item className='d-flex justify-content-between' onClick={getCVPdf}> */}
+                    <Dropdown.Item href={`${apiURL}/profile/${_id}/CV`} className='d-flex justify-content-between'>
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                          <path d="M15.5 2H4v20h16V6.5zM6 20V4h8v4h4v12z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        Export CV
+                      </div>
+                    </Dropdown.Item>
+                  </DropdownButton>
+                  {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                    <path d="M21 14v5a3 3 0 01-3 3H6a3 3 0 01-3-3v-5h2v5a1 1 0 001 1h12a1 1 0 001-1v-5zm-4-.57V11l-4 2.85V3h-2v10.85L7 11v2.43L12 17z"></path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                    <path d="M15.5 2H4v20h16V6.5zM6 20V4h8v4h4v12z"></path>
+                  </svg> */}
                 </div>
               </Col>
               <Col style={{ textAlign: 'right' }}>
