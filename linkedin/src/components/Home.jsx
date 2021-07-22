@@ -59,7 +59,7 @@ const [newPic, setNewPic] = useState()
   
   useEffect(() => {
     const getProfiles = async () => {
-      const _id = "60f56a759c8449314989c90c"
+      const _id = "60f56e46357fbf325358cc05"
       const apiURL = process.env.REACT_APP_BE_URL
       let response = await fetch(
         `${apiURL}/profile/${_id}`,
@@ -101,7 +101,7 @@ const [newPic, setNewPic] = useState()
               const res = await response.json()
               const postId = res._id
               console.log('my response',postId, res)
-              postAPic( postId)
+              postAPic(postId)
             alert('data saved successfully')
               getPosts()
 
@@ -147,6 +147,49 @@ const [newPic, setNewPic] = useState()
           }
       } catch (err) {
           console.log(err)
+      }
+    }
+
+    const editPost = async (id) => {
+      try {
+        const apiURL = process.env.REACT_APP_BE_URL
+        const response = await fetch(
+          `${apiURL}/posts/${id}`,
+          {
+            method: 'PUT',
+            body: JSON.stringify(postIt),
+            headers: {
+              'Content-type': 'application/json',
+            }
+          })
+          if(response.ok) {
+            console.log(`Post updated`)
+            postAPic(id)
+            getPosts();
+          } else {
+            console.log('Theres was an error updating post!');
+          }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const deletePost = async (id) => {
+      try {
+        const apiURL = process.env.REACT_APP_BE_URL
+        const response = await fetch(
+          `${apiURL}/posts/${id}`,
+          {
+            method: 'DELETE',
+          })
+          if(response.ok) {
+            console.log(`Post deleted`)
+            getPosts();
+          } else {
+            console.log('Theres was an error deleting post!');
+          }
+      } catch (error) {
+        console.log(error);
       }
     }
 
@@ -330,6 +373,7 @@ const [newPic, setNewPic] = useState()
 
                     <button
                       style={{ border: "none", backgroundColor: "white" }}
+                      onClick={()=>handleShow(el._id)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -349,6 +393,7 @@ const [newPic, setNewPic] = useState()
 
                     <button
                       style={{ border: "none", backgroundColor: "white" }}
+                      onClick={() => deletePost(el._id)}
                     >
                       <span
                         tabindex="-1"
@@ -459,6 +504,9 @@ const [newPic, setNewPic] = useState()
 </svg> 
 <Form.File style={{ border: "none", backgroundColor: "white" }} onChange={grabPic} /> 
 
+          <Button variant="secondary" className='badge-pill ml-auto' onClick={editPost}>
+            Edit
+          </Button>
           <Button variant="secondary" className='badge-pill ml-auto' onClick={createPost}>
             Post
           </Button>
