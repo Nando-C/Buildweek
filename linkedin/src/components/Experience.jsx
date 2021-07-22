@@ -22,13 +22,18 @@ class Experience extends Component {
 
     fetchExperiences = async (props) => {
         const userId = this.props.match.params.userId
-        const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
+        // const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
         try {
-            const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`, {
-                headers: {
-                    "Authorization": `Bearer ${apiToken}`,
-                }
-            })
+            const apiURL = process.env.REACT_APP_BE_URL
+            const response = await fetch(
+                `${apiURL}/profile/${userId}/experiences`,
+                // `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`, 
+                // {
+                // headers: {
+                //     "Authorization": `Bearer ${apiToken}`,
+                // }
+            // }
+            )
             const data = await response.json()
             console.log(data)
             this.setState({
@@ -66,13 +71,17 @@ class Experience extends Component {
 
         console.log(this.state.newExperience)
         const userId = this.props.match.params.userId
-        const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
+        // const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c'
         try {
-            const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`, {
+            const apiURL = process.env.REACT_APP_BE_URL
+            const response = await fetch(
+                `${apiURL}/profile/${userId}/experiences`,
+                // `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`, 
+                {
                 method: 'POST',
                 body: JSON.stringify(this.state.newExperience),
                 headers: {
-                    "Authorization": `Bearer ${apiToken}`,
+                    // "Authorization": `Bearer ${apiToken}`,
                     "Content-type": "application/json"
                 }
             })

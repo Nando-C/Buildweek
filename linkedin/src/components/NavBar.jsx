@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, InputGroup, Col } from 'react-bootstrap'
-import defaultProf from '../assets/default_profile.jpeg';
+// import defaultProf from '../assets/default_profile.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons"
 import { Link } from 'react-router-dom';
@@ -15,14 +15,17 @@ const NavBar = () => {
   
   useEffect(() => {
     const getProfiles = async () => {
+      const apiURL = process.env.REACT_APP_BE_URL
+      const _id = "60f56e46357fbf325358cc05"
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/60c89716c193050015871546",
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MTEwNjI5MTkzMDAwMTU2MGFiOTQiLCJpYXQiOjE2MjM2NTg3NTksImV4cCI6MTYyNDg2ODM1OX0.wSLELEDQ8EvVaUT7VwhhllP7b8dSxFmkatWvybYtSvI",
-          },
-        }
+        `${apiURL}/profile/${_id}`,
+        // "https://striveschool-api.herokuapp.com/api/profile/60c89716c193050015871546",
+        // {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MTEwNjI5MTkzMDAwMTU2MGFiOTQiLCJpYXQiOjE2MjM2NTg3NTksImV4cCI6MTYyNDg2ODM1OX0.wSLELEDQ8EvVaUT7VwhhllP7b8dSxFmkatWvybYtSvI",
+        //   },
+        // }
       );
       let profiles = await response.json();
       console.log("profiles", profiles);
@@ -100,7 +103,7 @@ const NavBar = () => {
               <p className="mb-0 text-secondary">Notifications</p>
             </Nav.Link>
             <div className="flex-col">
-              <Link to={'/profile/60c89716c193050015871546'}>
+              <Link to={`/profile/${profile?._id}`}>
 
                 <img width="30" src={profile?.image} height="30" alt="Janusz Kondziarz" id="ember30" className="global-nav__me-photo ember-view rounded-circle d-flex mx-auto my-1" />
 

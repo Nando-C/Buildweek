@@ -1,15 +1,15 @@
 import React, { Component, } from 'react';
 
-import { Card, Button, ListGroup } from 'react-bootstrap';
+import { Card, ListGroup } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedinIn,  } from '@fortawesome/free-brands-svg-icons'
+import { faUserPlus, faBookmark } from "@fortawesome/free-solid-svg-icons";
+// import { faLinkedinIn,  } from '@fortawesome/free-brands-svg-icons'
 
 // import DefaultProfile from "../assets/default_profile.jpeg"
-import MiniVideoCard from "./mini-video-card"
+// import MiniVideoCard from "./mini-video-card"
 
 import LinkHead from "../assets/linkedHead.png"
 
@@ -17,7 +17,7 @@ import LinkHead from "../assets/linkedHead.png"
 class HomeProf extends Component {
 
     state = {
-        profImg: "",
+        profile: "",
     }
 
 
@@ -28,9 +28,12 @@ class HomeProf extends Component {
       return (
                 <Card fluid="true" className="d-flex px-0 border-0">
                 <Card.Img fluid="true" variant="top" src={LinkHead} style={{ borderRadius: "10px 10px 0px 0px"}} />
-                {/* <img src={this.props.profImg}/> */}
-                <Card.Body className="px-0">
-                <Card.Title className="d-flex justify-content-center" style={{fontSize: '15px', fontWeight: 'bold' }}>Welcome, Shakira!</Card.Title>
+                <img src={this.props.profile?.image} alt='profile'
+                className="rounded-circle mx-auto border border-white" style={{ height: "80px", width: "80px", position: "relative", bottom: "40px" }} 
+                // {this.props.profImg}
+                />
+                <Card.Body className="px-0 py-0">
+                <Card.Title className="d-flex justify-content-center mb-0" style={{fontSize: '15px', fontWeight: 'bold', position: "relative", bottom: "15px" }}>Welcome, {this.props.profile?.name}!</Card.Title>
                 <Card.Text className="d-flex justify-content-center">
                     Add a photo
                 </Card.Text>
@@ -59,7 +62,8 @@ class HomeProf extends Component {
                     </ListGroup.Item>
                 
                 </ListGroup>
-                <Card.Footer className="text-center align-items-center py-3" style={{fontSize: '18px', fontWeight: 'bold' }}>
+                <Card.Footer className="text-justify align-items-center py-3" style={{fontSize: '18px', fontWeight: 'bold' }}>
+                <FontAwesomeIcon className="d-inline-flex align-items-center" icon={faBookmark} style={{fontSize: '14px',}}/>
                         <p className="d-inline-flex mb-0 px-2">My items</p>
             </Card.Footer>
                 

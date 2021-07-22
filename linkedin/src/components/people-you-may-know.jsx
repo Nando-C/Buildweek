@@ -27,16 +27,14 @@ class YouKnow extends Component {
         let profileArray
         let peopleKnowArray
         let peopleKnowArray2
+        const apiURL = process.env.REACT_APP_BE_URL
 
-        fetch('https://striveschool-api.herokuapp.com/api/profile/', {
-            headers: {
-                Authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MTEwNjI5MTkzMDAwMTU2MGFiOTQiLCJpYXQiOjE2MjM2NTg3NTksImV4cCI6MTYyNDg2ODM1OX0.wSLELEDQ8EvVaUT7VwhhllP7b8dSxFmkatWvybYtSvI'
-                }})
+        fetch(`${apiURL}/profile/`)
         .then((response) => response.json())
         .then(profileList => {
             console.log(profileList)
 
-            profileArray = profileList
+            profileArray = profileList.profiles
 
             console.log(profileArray)
 

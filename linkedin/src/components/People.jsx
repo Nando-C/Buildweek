@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, Container, Row, Col, Pagination,  ListGroup } from "react-bootstrap";
+import { Card, Container, Row, Col, Pagination } from "react-bootstrap";
 
 import DefaultProfile from "../assets/default_profile.jpeg"
 
@@ -8,7 +8,7 @@ const People = (props) => {
   const [total, setTotal] = useState(null);
   const [links, setLinks] = useState(null);
 
-  const getProfiles = async (pag='/profile?limit=2') => {
+  const getProfiles = async (pag='/profile?limit=3') => {
     const apiURL = process.env.REACT_APP_BE_URL
     let response = await fetch(
       `${apiURL}${pag}`
@@ -52,11 +52,15 @@ const People = (props) => {
       {links !== null 
       ? <Row className='justify-content-center mt-4'>
           <Pagination>
-            {links?.first && <Pagination.First onClick={()=> getProfiles(links?.first)}/>} 
-            {links?.prev && <Pagination.Prev onClick={()=> getProfiles(links?.prev)}/>}
-            {links?.next && <Pagination.Next onClick={()=> getProfiles(links?.next)}/>}
-            {links?.last && <Pagination.Last onClick={()=> getProfiles(links?.last)}/>}
-            <Pagination.Item className='ml-5'>{total} Results</Pagination.Item>
+            {links?.first && <Pagination.Item onClick={()=> getProfiles(links?.first)}>First</Pagination.Item>} 
+            {/* {links?.first && <Pagination.First onClick={()=> getProfiles(links?.first)}/>}  */}
+            {links?.prev && <Pagination.Item onClick={()=> getProfiles(links?.prev)}>prev</Pagination.Item>}
+            {/* {links?.prev && <Pagination.Prev onClick={()=> getProfiles(links?.prev)}/>} */}
+            {links?.next && <Pagination.Item onClick={()=> getProfiles(links?.next)}>next</Pagination.Item>}
+            {/* {links?.next && <Pagination.Next onClick={()=> getProfiles(links?.next)}/>} */}
+            {links?.last && <Pagination.Item onClick={()=> getProfiles(links?.last)}>Last</Pagination.Item>}
+            {/* {links?.last && <Pagination.Last onClick={()=> getProfiles(links?.last)}/>} */}
+            <Pagination.Item className='ml-5'>... {profile.length} of {total} Profiles</Pagination.Item>
           </Pagination>
         </Row>
       : <></>
