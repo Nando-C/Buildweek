@@ -19,9 +19,8 @@ const Home = () => {
   const [posts, setPosts] = useState(null);
 
   const [postIt, setPostIt] = useState({
-
-    text: ''
-
+    text: '',
+    user: ''
 })
 
 const [newPic, setNewPic] = useState()
@@ -60,7 +59,7 @@ const [newPic, setNewPic] = useState()
   
   useEffect(() => {
     const getProfiles = async () => {
-      const _id = "60f56e46357fbf325358cc05"
+      const _id = "60f56a759c8449314989c90c"
       const apiURL = process.env.REACT_APP_BE_URL
       let response = await fetch(
         `${apiURL}/profile/${_id}`,
@@ -255,7 +254,7 @@ const [newPic, setNewPic] = useState()
                 <Card.Header>
                   {" "}
                   <Row>
-                  {console.log(el.user[0]?.image)}
+                  {console.log(el.user?.image)}
                     <Col md="auto">
                       <img
                         style={{
@@ -263,17 +262,17 @@ const [newPic, setNewPic] = useState()
                           width: "50px",
                           borderRadius: "50%",
                         }}
-                        src={el.user[0]?.image}
+                        src={el.user?.image}
                         // src={el.user?.image}
                         alt="logo"
                       />
                     </Col>
                     <Col style={{ textAlign: "left" }} md="auto">
-                      {el.user[0]?.name} {el.user[0]?.surname} <br />{" "}
+                      {el.user?.name} {el.user?.surname} <br />{" "}
                       {/* {el.user.name} {el.user.surname} <br />{" "} */}
                       <span className="title text-secondary">
                         {" "}
-                        {el.user[0]?.title}{" "}
+                        {el.user?.title}{" "}
                         {/* {el.user.title}{" "} */}
                       </span>
                     </Col>
@@ -379,7 +378,7 @@ const [newPic, setNewPic] = useState()
                   style={{ textAlign: "left" }}
                 >
                   {" "}
-                  {el.user.createdAt}
+                  {el.user?.createdAt}
                 </Card.Footer>
               </Card>
             ))}
@@ -419,14 +418,14 @@ const [newPic, setNewPic] = useState()
           </Row>
           <Row>
             <Col>
-              
+            {console.log(postIt)}
                 <Form.Control
 
                 // let exper = {Object.values(postIt)}
-                  value = {Object.values(postIt)[0]}
+                  value = {Object.values(postIt)[0].text}
                   
                   onChange ={ e => setPostIt( {
-
+                    user: `${profile?._id}`,
                     text: e.target.value 
             
                 })}
