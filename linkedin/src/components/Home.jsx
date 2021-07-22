@@ -401,7 +401,7 @@ const [newPic, setNewPic] = useState()
                   style={{ textAlign: "left" }}
                 >
                   {" "}
-                  {el.user?.createdAt}
+                  {el.createdAt}
                 </Card.Footer>
               </Card>
             ))}
