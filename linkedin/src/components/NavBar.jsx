@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, InputGroup, Col } from 'react-bootstrap'
-import defaultProf from '../assets/default_profile.jpeg';
+// import defaultProf from '../assets/default_profile.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons"
 import { Link } from 'react-router-dom';

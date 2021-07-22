@@ -1,16 +1,16 @@
 import React, { Component, } from 'react';
 
-import { Card, Container, Row } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfo, faChevronDown, faChevronUp, faCircle, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faInfo, faCircle, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 // import DefaultProfile from "../assets/default_profile.jpeg"
-import MiniProfileCard from "./profile-card"
+// import MiniProfileCard from "./profile-card"
 
-import { withRouter, Link } from "react-router-dom";
+// import { withRouter, Link } from "react-router-dom";
 
 class TopCourse extends Component {
 

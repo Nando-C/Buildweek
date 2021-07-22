@@ -12,7 +12,7 @@ import {
 
 import { useEffect, useState } from "react";
 import HomeProf from "./home-profile";
-import { Profiler } from "react";
+// import { Profiler } from "react";
 
 
 const Home = () => {
@@ -59,7 +59,7 @@ const [newPic, setNewPic] = useState()
   
   useEffect(() => {
     const getProfiles = async () => {
-      const _id = "60f56a759c8449314989c90c"
+      const _id = "60f56e46357fbf325358cc05"
       const apiURL = process.env.REACT_APP_BE_URL
       let response = await fetch(
         `${apiURL}/profile/${_id}`,
@@ -101,7 +101,7 @@ const [newPic, setNewPic] = useState()
               const res = await response.json()
               const postId = res._id
               console.log('my response',postId, res)
-              postAPic( postId)
+              postAPic(postId)
             alert('data saved successfully')
               getPosts()
 
@@ -147,6 +147,27 @@ const [newPic, setNewPic] = useState()
           }
       } catch (err) {
           console.log(err)
+      }
+    }
+
+  
+
+    const deletePost = async (id) => {
+      try {
+        const apiURL = process.env.REACT_APP_BE_URL
+        const response = await fetch(
+          `${apiURL}/posts/${id}`,
+          {
+            method: 'DELETE',
+          })
+          if(response.ok) {
+            console.log(`Post deleted`)
+            getPosts();
+          } else {
+            console.log('Theres was an error deleting post!');
+          }
+      } catch (error) {
+        console.log(error);
       }
     }
 
@@ -330,6 +351,7 @@ const [newPic, setNewPic] = useState()
 
                     <button
                       style={{ border: "none", backgroundColor: "white" }}
+                      // onClick={()=>handleShow(el._id)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -349,6 +371,7 @@ const [newPic, setNewPic] = useState()
 
                     <button
                       style={{ border: "none", backgroundColor: "white" }}
+                      onClick={() => deletePost(el._id)}
                     >
                       <span
                         tabindex="-1"
@@ -404,16 +427,19 @@ const [newPic, setNewPic] = useState()
               />
             </Col>
             <Col xs={11}>
-                <div>
-              <span className="ml-4">{profile?.name} {profile?.surname}</span> <br />
-              {/* <span className="ml-4">Janusz Kondziarz</span> <br /> */}
-              <Button variant="outline-secondary" style={{fontSize: '14px'}} className="badge-pill ml-4 mb-1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
-  <path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zM3 8a5 5 0 011-3l.55.55A1.5 1.5 0 015 6.62v1.07a.75.75 0 00.22.53l.56.56a.75.75 0 00.53.22H7v.69a.75.75 0 00.22.53l.56.56a.75.75 0 01.22.53V13a5 5 0 01-5-5zm6.24 4.83l2-2.46a.75.75 0 00.09-.8l-.58-1.16A.76.76 0 0010 8H7v-.19a.51.51 0 01.28-.45l.38-.19a.74.74 0 01.68 0L9 7.5l.38-.7a1 1 0 00.12-.48v-.85a.78.78 0 01.21-.53l1.07-1.09a5 5 0 01-1.54 9z"></path>
-</svg>  Anyone <li-icon aria-hidden="true" type="caret-filled-down-icon" class="share-state-change-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
-  <path d="M8 11L3 6h10z" fill-rule="evenodd"></path>
-</svg></li-icon>
-              </Button>  </div>
+              <div>
+                <span className="ml-4">{profile?.name} {profile?.surname}</span> <br />
+                {/* <span className="ml-4">Janusz Kondziarz</span> <br /> */}
+                <Button variant="outline-secondary" style={{ fontSize: '14px' }} className="badge-pill ml-4 mb-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                    <path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zM3 8a5 5 0 011-3l.55.55A1.5 1.5 0 015 6.62v1.07a.75.75 0 00.22.53l.56.56a.75.75 0 00.53.22H7v.69a.75.75 0 00.22.53l.56.56a.75.75 0 01.22.53V13a5 5 0 01-5-5zm6.24 4.83l2-2.46a.75.75 0 00.09-.8l-.58-1.16A.76.76 0 0010 8H7v-.19a.51.51 0 01.28-.45l.38-.19a.74.74 0 01.68 0L9 7.5l.38-.7a1 1 0 00.12-.48v-.85a.78.78 0 01.21-.53l1.07-1.09a5 5 0 01-1.54 9z"></path>
+                  </svg>
+                  Anyone
+                  <li-icon aria-hidden="true" type="caret-filled-down-icon" class="share-state-change-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                    <path d="M8 11L3 6h10z" fill-rule="evenodd"></path>
+                  </svg></li-icon>
+                </Button>
+              </div>
             </Col>
           </Row>
           <Row>
@@ -427,7 +453,6 @@ const [newPic, setNewPic] = useState()
                   onChange ={ e => setPostIt( {
                     user: `${profile?._id}`,
                     text: e.target.value 
-            
                 })}
                   as="textarea"
                   placeholder="What do you want to talk about?"
@@ -459,6 +484,9 @@ const [newPic, setNewPic] = useState()
 </svg> 
 <Form.File style={{ border: "none", backgroundColor: "white" }} onChange={grabPic} /> 
 
+          {/* <Button variant="secondary" className='badge-pill ml-auto' onClick={editPost}>
+            Edit
+          </Button> */}
           <Button variant="secondary" className='badge-pill ml-auto' onClick={createPost}>
             Post
           </Button>

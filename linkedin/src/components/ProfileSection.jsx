@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button, Modal, Form, Image, Dropdown, DropdownButton } from "react-bootstrap";
-import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+// import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import About from "./About";
 // import { propTypes } from "react-bootstrap/esm/Image";
 
@@ -119,27 +119,26 @@ const ProfileSection = ({obj}) => {
   const apiURL = process.env.REACT_APP_BE_URL
   const _id = obj?._id
 
-  const getCVPdf = async () => {
-    try {
-      const apiURL = process.env.REACT_APP_BE_URL
-      const _id = obj._id
+  // const getCVPdf = async () => {
+  //   try {
+  //     const apiURL = process.env.REACT_APP_BE_URL
+  //     const _id = obj._id
 
-      const response = await fetch(
-        `${apiURL}/profile/${_id}/CV`
-      )
-      if(response.ok) {
-        console.log("CV pdf was successfully generated!!");
-        // console.log(response);
-        // const cv = await response.blob()
-        // console.log(cv);
-      } else {
-        console.log('Error generating the CV pdf file');
-      }
-    } catch (error) {
-      console.log(error);
-    }
-
-  }
+  //     const response = await fetch(
+  //       `${apiURL}/profile/${_id}/CV`
+  //     )
+  //     if(response.ok) {
+  //       console.log("CV pdf was successfully generated!!");
+  //       // console.log(response);
+  //       // const cv = await response.blob()
+  //       // console.log(cv);
+  //     } else {
+  //       console.log('Error generating the CV pdf file');
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   return (
     <>
