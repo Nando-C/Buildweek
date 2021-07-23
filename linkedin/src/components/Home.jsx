@@ -59,7 +59,7 @@ const [newPic, setNewPic] = useState()
   
   useEffect(() => {
     const getProfiles = async () => {
-      const _id = "60f56e46357fbf325358cc05"
+      const _id = "60f6ac899a8e175ee3144ec0"
       const apiURL = process.env.REACT_APP_BE_URL
       let response = await fetch(
         `${apiURL}/profile/${_id}`,
