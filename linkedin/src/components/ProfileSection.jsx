@@ -17,7 +17,7 @@ const ProfileSection = ({obj}) => {
       title: '',
       area: '',
       image: '', //server generated on upload
-    // "username": "admin", //server generated from Auth
+    username: '', //server generated from Auth
     // "createdAt": "2019-09-20T08:53:07.094Z", //server generated
     // "updatedAt": "2019-09-20T09:00:46.977Z", //server generated
     // "__v": 0 //server generated
@@ -33,6 +33,7 @@ const ProfileSection = ({obj}) => {
       title: obj?.title,
       area: obj?.area,
       image: obj?.image,
+      username: obj?.username
     })
   },[obj])
 
@@ -97,6 +98,7 @@ const ProfileSection = ({obj}) => {
     try {
       const apiURL = process.env.REACT_APP_BE_URL
       const _id = obj._id
+
         const response = await fetch(
           // `https://striveschool-api.herokuapp.com/api/profile/60c89716c193050015871546/picture`,
           `${apiURL}/profile/${_id}/picture`,
@@ -187,14 +189,28 @@ const ProfileSection = ({obj}) => {
                   
                   <DropdownButton id="dropdown-profile" title='More' variant="outline-secondary" className=''>
                     {/* <Dropdown.Item className='d-flex justify-content-between' onClick={getCVPdf}> */}
-                    <Dropdown.Item href={`${apiURL}/profile/${_id}/CV`} className='d-flex justify-content-between'>
+                    <Dropdown.Item href={`${apiURL}/profile/${_id}/CV`} className='d-flex justify-content-start'>
                       <div>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
                           <path d="M15.5 2H4v20h16V6.5zM6 20V4h8v4h4v12z"></path>
                         </svg>
                       </div>
                       <div>
+                        <p className="mb-0 pl-2">
                         Export CV
+                        </p>
+                      </div>
+                    </Dropdown.Item>
+                    <Dropdown.Item href={`${apiURL}/profile/${_id}/experiences/CSV`} className='d-flex justify-content-between'>
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                          <path d="M15.5 2H4v20h16V6.5zM6 20V4h8v4h4v12z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                      <p className="mb-0 pl-2">
+                        Export Experiences - CSV
+                        </p>
                       </div>
                     </Dropdown.Item>
                   </DropdownButton>
