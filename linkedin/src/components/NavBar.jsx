@@ -182,7 +182,7 @@ const NavBar = () => {
                   width="30"
                   src={profile?.image}
                   height="30"
-                  alt="Janusz Kondziarz"
+                  alt="profile-img"
                   id="ember30"
                   className="global-nav__me-photo ember-view rounded-circle d-flex mx-auto my-1"
                 />
@@ -195,9 +195,9 @@ const NavBar = () => {
               >
                 <img
                   width="24"
-                  src="https://media-exp1.licdn.com/dms/image/C4D35AQEHGgKSN6gBWg/profile-framedphoto-shrink_400_400/0/1620813541179?e=1623769200&amp;v=beta&amp;t=XXSCoiZQhn2znwW9T6YHYgKWvhxfyNgtS6X2J5n6lGE"
+                  src={profile?.image}
                   height="24"
-                  alt="Janusz Kondziarz"
+                  alt="profile-img"
                   id="ember30"
                   className="global-nav__me-photo ember-view"
                 />
