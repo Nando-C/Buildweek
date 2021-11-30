@@ -8,18 +8,18 @@ import {
   Modal,
   Form,
   Image,
-} from 'react-bootstrap';
+} from "react-bootstrap";
 
-import { useEffect, useState } from 'react';
-import HomeProf from './home-profile';
+import { useEffect, useState } from "react";
+import HomeProf from "./home-profile";
 // import { Profiler } from "react";
 
 const Home = () => {
   const [posts, setPosts] = useState(null);
 
   const [postIt, setPostIt] = useState({
-    text: '',
-    user: '',
+    text: "",
+    user: "",
   });
 
   const [newPic, setNewPic] = useState();
@@ -60,8 +60,8 @@ const Home = () => {
 
   useEffect(() => {
     const getProfiles = async () => {
-      const _id = "60f6ac899a8e175ee3144ec0"
-      const apiURL = process.env.REACT_APP_BE_URL
+      const _id = "619e34d7d4c34d7d22f879f1";
+      const apiURL = process.env.REACT_APP_BE_URL;
       let response = await fetch(
         `${apiURL}/profile/${_id}`
         // "https://striveschool-api.herokuapp.com/api/profile/60c89716c193050015871546",
@@ -73,7 +73,7 @@ const Home = () => {
         // }
       );
       let profiles = await response.json();
-      console.log('profiles', profiles);
+      console.log("profiles", profiles);
       setProfile(profiles);
     };
     getProfiles();
@@ -86,10 +86,10 @@ const Home = () => {
       const apiURL = process.env.REACT_APP_BE_URL;
       const response = await fetch(`${apiURL}/posts`, {
         // "https://striveschool-api.herokuapp.com/api/posts/", {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify(postIt),
         headers: {
-          'Content-type': 'application/json',
+          "Content-type": "application/json",
           // Authorization:
           // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c",
         },
@@ -97,9 +97,9 @@ const Home = () => {
       if (response.ok) {
         const res = await response.json();
         const postId = res._id;
-        console.log('my response', postId, res);
+        console.log("my response", postId, res);
         postAPic(postId);
-        alert('data saved successfully');
+        alert("data saved successfully");
         getPosts();
 
         // postAPic
@@ -114,10 +114,10 @@ const Home = () => {
       const apiURL = process.env.REACT_APP_BE_URL;
       const response = await fetch(`${apiURL}/posts${postId}`, {
         // "https://striveschool-api.herokuapp.com/api/posts/", {
-        method: 'PUT',
+        method: "PUT",
         body: JSON.stringify(postIt),
         headers: {
-          'Content-type': 'application/json',
+          "Content-type": "application/json",
           // Authorization:
           // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4OTcxNmMxOTMwNTAwMTU4NzE1NDYiLCJpYXQiOjE2MjM3NTg2MTQsImV4cCI6MTYyNDk2ODIxNH0.a8nHWd_m6aYBbyPS4CFTexm_WJ0_K-ZBPC_4QapdJ8c",
         },
@@ -125,9 +125,9 @@ const Home = () => {
       if (response.ok) {
         const res = await response.json();
         const postId = res._id;
-        console.log('my response', postId, res);
+        console.log("my response", postId, res);
         postAPic(postId);
-        alert('data saved successfully');
+        alert("data saved successfully");
         getPosts();
 
         // postAPic
@@ -142,7 +142,7 @@ const Home = () => {
 
   const grabPic = (e) => {
     let newPicture = new FormData();
-    newPicture.append('image', e.target.files[0]);
+    newPicture.append("image", e.target.files[0]);
     setNewPic(newPicture);
   };
 
@@ -154,7 +154,7 @@ const Home = () => {
         `${apiURL}/posts/${postId}/picture`,
         // `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
         {
-          method: 'POST',
+          method: "POST",
           body: newPic,
           // headers: {
           //     "Authorization": `Bearer ${apiToken}`,
@@ -164,7 +164,7 @@ const Home = () => {
       if (response.ok) {
         setShow(false);
       } else {
-        console.log('we had a problem');
+        console.log("we had a problem");
       }
     } catch (err) {
       console.log(err);
@@ -175,13 +175,13 @@ const Home = () => {
     try {
       const apiURL = process.env.REACT_APP_BE_URL;
       const response = await fetch(`${apiURL}/posts/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
       if (response.ok) {
         console.log(`Post deleted`);
         getPosts();
       } else {
-        console.log('Theres was an error deleting post!');
+        console.log("Theres was an error deleting post!");
       }
     } catch (error) {
       console.log(error);
@@ -214,7 +214,7 @@ const Home = () => {
                 <Button
                   variant="outline-secondary"
                   className="badge-pill ml-3 mt-1 w-100 text-left"
-                  style={{ height: '95%', border: '1px solid grey' }}
+                  style={{ height: "95%", border: "1px solid grey" }}
                   onClick={handleShow}
                 >
                   Start a post
@@ -287,43 +287,43 @@ const Home = () => {
           {posts?.slice(0, 50).map((el, i) => (
             <Card className="text-center">
               <Card.Header>
-                {' '}
+                {" "}
                 <Row>
                   {console.log(el.user?.image)}
                   <Col md="auto">
                     <img
                       style={{
-                        height: '50px',
-                        width: '50px',
-                        borderRadius: '50%',
+                        height: "50px",
+                        width: "50px",
+                        borderRadius: "50%",
                       }}
                       src={el.user?.image}
                       // src={el.user?.image}
                       alt="logo"
                     />
                   </Col>
-                  <Col style={{ textAlign: 'left' }} md="auto">
-                    {el.user?.name} {el.user?.surname} <br />{' '}
+                  <Col style={{ textAlign: "left" }} md="auto">
+                    {el.user?.name} {el.user?.surname} <br />{" "}
                     {/* {el.user.name} {el.user.surname} <br />{" "} */}
                     <span className="title text-secondary">
-                      {' '}
+                      {" "}
                       {el.user?.title} {/* {el.user.title}{" "} */}
                     </span>
                   </Col>
-                  <Col style={{ textAlign: 'right' }}>
+                  <Col style={{ textAlign: "right" }}>
                     <Button
                       variant="link"
                       style={{
-                        border: 'none',
-                        position: 'relative',
-                        paddingLeft: '0px',
+                        border: "none",
+                        position: "relative",
+                        paddingLeft: "0px",
                       }}
                       onClick={() => {
                         handleShowEdit();
                         setPostIt(el._id);
                       }}
                     >
-                      {' '}
+                      {" "}
                       <Image
                         alt=""
                         src="https://img.icons8.com/ios-filled/30/000000/menu-2.png"
@@ -343,9 +343,9 @@ const Home = () => {
                 />
               </Card.Body>
               <ListGroup variant="flush">
-                <ListGroup.Item style={{ textAlign: 'left' }}>
+                <ListGroup.Item style={{ textAlign: "left" }}>
                   <hr />
-                  <button style={{ border: 'none', backgroundColor: 'white' }}>
+                  <button style={{ border: "none", backgroundColor: "white" }}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -366,7 +366,7 @@ const Home = () => {
                       Like
                     </span>
                   </button>
-                  <button style={{ border: 'none', backgroundColor: 'white' }}>
+                  <button style={{ border: "none", backgroundColor: "white" }}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -384,7 +384,7 @@ const Home = () => {
                   </button>
 
                   <button
-                    style={{ border: 'none', backgroundColor: 'white' }}
+                    style={{ border: "none", backgroundColor: "white" }}
                     // onClick={()=>handleShow(el._id)}
                   >
                     <svg
@@ -403,7 +403,7 @@ const Home = () => {
                     <span class="artdeco-button__text">Share</span>
                   </button>
 
-                  <button style={{ border: 'none', backgroundColor: 'white' }}>
+                  <button style={{ border: "none", backgroundColor: "white" }}>
                     <span
                       tabindex="-1"
                       id="ember340"
@@ -425,7 +425,7 @@ const Home = () => {
                     </span>
                   </button>
                   <button
-                    style={{ border: 'none', backgroundColor: 'white' }}
+                    style={{ border: "none", backgroundColor: "white" }}
                     onClick={() => deletePost(el._id)}
                   >
                     <span
@@ -444,8 +444,8 @@ const Home = () => {
                 </ListGroup.Item>
               </ListGroup>
 
-              <Card.Footer className="text-muted" style={{ textAlign: 'left' }}>
-                {' '}
+              <Card.Footer className="text-muted" style={{ textAlign: "left" }}>
+                {" "}
                 {el.createdAt}
               </Card.Footer>
             </Card>
@@ -474,12 +474,12 @@ const Home = () => {
               <div>
                 <span className="ml-4">
                   {profile?.name} {profile?.surname}
-                </span>{' '}
+                </span>{" "}
                 <br />
                 {/* <span className="ml-4">Janusz Kondziarz</span> <br /> */}
                 <Button
                   variant="outline-secondary"
-                  style={{ fontSize: '14px' }}
+                  style={{ fontSize: "14px" }}
                   className="badge-pill ml-4 mb-1"
                 >
                   <svg
@@ -532,16 +532,16 @@ const Home = () => {
                 }
                 as="textarea"
                 placeholder="What do you want to talk about?"
-                style={{ height: '100px', border: 'none' }}
+                style={{ height: "100px", border: "none" }}
               />
 
               <a href="/">Add hashtag</a>
             </Col>
           </Row>
         </Modal.Body>
-        <Modal.Footer style={{ textAlign: 'left' }}>
-          <button style={{ border: 'none', backgroundColor: 'white' }}>
-            {' '}
+        <Modal.Footer style={{ textAlign: "left" }}>
+          <button style={{ border: "none", backgroundColor: "white" }}>
+            {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -553,7 +553,7 @@ const Home = () => {
               focusable="false"
             >
               <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
-            </svg>{' '}
+            </svg>{" "}
           </button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -566,7 +566,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -578,7 +578,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M3 3v15a3 3 0 003 3h9v-6h6V3zm9 8H6v-1h6zm6-3H6V7h12zm-2 8h5l-5 5z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -590,7 +590,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -602,7 +602,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M22 11.1L20.47 10a1.09 1.09 0 01-.4-1.25l.62-1.81a1.11 1.11 0 00-.7-1.4 1.07 1.07 0 00-.35-.06h-2a1.09 1.09 0 01-1.05-.76l-.59-2A1.09 1.09 0 0015 2a1.11 1.11 0 00-.66.22l-1.69 1.17a1.13 1.13 0 01-1.31 0L9.75 2.22a1.11 1.11 0 00-1.55.16 1.07 1.07 0 00-.2.38L7.41 4.7a1.09 1.09 0 01-1 .76h-2a1.11 1.11 0 00-1.16 1.06 1.34 1.34 0 00.06.4l.63 1.82a1.1 1.1 0 01-.4 1.26L2 11.11a1.1 1.1 0 00-.26 1.53 1.28 1.28 0 00.26.26L3.53 14a1.09 1.09 0 01.4 1.25l-.62 1.8a1.11 1.11 0 00.7 1.4 1.07 1.07 0 00.35.06h2a1.09 1.09 0 011 .76l.64 2a1.12 1.12 0 001.1.73 1.05 1.05 0 00.64-.22l1.6-1.17a1.1 1.1 0 011.31 0l1.6 1.17a1.14 1.14 0 001.75-.55l.62-1.93a1.11 1.11 0 011.05-.76h2a1.11 1.11 0 001.11-1.11 1 1 0 00-.06-.35l-.63-1.82a1.11 1.11 0 01.38-1.26L22 12.89a1.07 1.07 0 00.5-.89 1.1 1.1 0 00-.5-.9zM7 11v-1h10v1zm2 3v-1h6v1z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -614,7 +614,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M23 20v1H1v-1zM8 9H2v10h6zm7-6H9v16h6zm7 11h-6v5h6z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -628,7 +628,7 @@ const Home = () => {
             <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
           </svg>
           <Form.File
-            style={{ border: 'none', backgroundColor: 'white' }}
+            style={{ border: "none", backgroundColor: "white" }}
             onChange={grabPic}
           />
           {/* <Button variant="secondary" className='badge-pill ml-auto' onClick={editPost}>
@@ -664,12 +664,12 @@ const Home = () => {
               <div>
                 <span className="ml-4">
                   {profile?.name} {profile?.surname}
-                </span>{' '}
+                </span>{" "}
                 <br />
                 {/* <span className="ml-4">Janusz Kondziarz</span> <br /> */}
                 <Button
                   variant="outline-secondary"
-                  style={{ fontSize: '14px' }}
+                  style={{ fontSize: "14px" }}
                   className="badge-pill ml-4 mb-1"
                 >
                   <svg
@@ -722,16 +722,16 @@ const Home = () => {
                 }
                 as="textarea"
                 placeholder="What do you want to talk about?"
-                style={{ height: '100px', border: 'none' }}
+                style={{ height: "100px", border: "none" }}
               />
 
               <a href="/">Add hashtag</a>
             </Col>
           </Row>
         </Modal.Body>
-        <Modal.Footer style={{ textAlign: 'left' }}>
-          <button style={{ border: 'none', backgroundColor: 'white' }}>
-            {' '}
+        <Modal.Footer style={{ textAlign: "left" }}>
+          <button style={{ border: "none", backgroundColor: "white" }}>
+            {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -743,7 +743,7 @@ const Home = () => {
               focusable="false"
             >
               <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
-            </svg>{' '}
+            </svg>{" "}
           </button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -756,7 +756,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -768,7 +768,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M3 3v15a3 3 0 003 3h9v-6h6V3zm9 8H6v-1h6zm6-3H6V7h12zm-2 8h5l-5 5z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -780,7 +780,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -792,7 +792,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M22 11.1L20.47 10a1.09 1.09 0 01-.4-1.25l.62-1.81a1.11 1.11 0 00-.7-1.4 1.07 1.07 0 00-.35-.06h-2a1.09 1.09 0 01-1.05-.76l-.59-2A1.09 1.09 0 0015 2a1.11 1.11 0 00-.66.22l-1.69 1.17a1.13 1.13 0 01-1.31 0L9.75 2.22a1.11 1.11 0 00-1.55.16 1.07 1.07 0 00-.2.38L7.41 4.7a1.09 1.09 0 01-1 .76h-2a1.11 1.11 0 00-1.16 1.06 1.34 1.34 0 00.06.4l.63 1.82a1.1 1.1 0 01-.4 1.26L2 11.11a1.1 1.1 0 00-.26 1.53 1.28 1.28 0 00.26.26L3.53 14a1.09 1.09 0 01.4 1.25l-.62 1.8a1.11 1.11 0 00.7 1.4 1.07 1.07 0 00.35.06h2a1.09 1.09 0 011 .76l.64 2a1.12 1.12 0 001.1.73 1.05 1.05 0 00.64-.22l1.6-1.17a1.1 1.1 0 011.31 0l1.6 1.17a1.14 1.14 0 001.75-.55l.62-1.93a1.11 1.11 0 011.05-.76h2a1.11 1.11 0 001.11-1.11 1 1 0 00-.06-.35l-.63-1.82a1.11 1.11 0 01.38-1.26L22 12.89a1.07 1.07 0 00.5-.89 1.1 1.1 0 00-.5-.9zM7 11v-1h10v1zm2 3v-1h6v1z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -804,7 +804,7 @@ const Home = () => {
             focusable="false"
           >
             <path d="M23 20v1H1v-1zM8 9H2v10h6zm7-6H9v16h6zm7 11h-6v5h6z"></path>
-          </svg>{' '}
+          </svg>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -818,7 +818,7 @@ const Home = () => {
             <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
           </svg>
           <Form.File
-            style={{ border: 'none', backgroundColor: 'white' }}
+            style={{ border: "none", backgroundColor: "white" }}
             onChange={grabPic}
           />
           {/* <Button variant="secondary" className='badge-pill ml-auto' onClick={editPost}>
