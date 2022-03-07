@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Nando-C/Buildweek2">
-    <img src="linkedin/public/linkedin-clone-logo.png" alt="Logo" width="80" height="80">
+    <img src="linkedin/public/linkedin-clone-logo.png" alt="Logo" width="180" height="90">
   </a>
 
 <h3 align="center">LinkedIn - Clone</h3>
@@ -14,8 +14,8 @@
     <br />
     <br />
     <a href="https://my-linkedin-benchmarkm6.vercel.app/">View Demo</a>
-    ·
-    <a href="https://github.com/Nando-C/Buildweek2/issues">Report Bug</a>
+    <!-- ·
+    <a href="https://github.com/Nando-C/Buildweek2/issues">Report Bug</a> -->
   </p>
 </div>
 
@@ -38,7 +38,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 Front-End part for a LinkedIn clone project, created as part of the Full Stack Master Camp at Strive School.
 Developed in 4 days by a distributed team of 3 students.
