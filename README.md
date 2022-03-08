@@ -60,7 +60,7 @@ This repo is a fork of the original team work, with some adjustments made in ord
 ## Usage
 
 - Once you open the application, you will land on the the home page, where you can see all the posts made from you and your network.
-  [![linkedIn home Screen Shot]linkedin/public/linkedIn-home.png](https://my-linkedin-benchmarkm6.vercel.app/)
+  <img src="linkedin/public/linkedIn-home.png" alt="home">
 - Here you can create, edit and delete your posts.
 - To go to your profile, simply click on the avatar picture on the navigation bar.
 - From here you can edit your profile details and picture.
