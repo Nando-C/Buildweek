@@ -29,7 +29,13 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#usage">Usage</a>
+     <ul>
+        <li><a href="#posts">Posts</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#downloads">Downloads</a></li>
+      </ul>
+    </li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -59,6 +65,8 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
 ## Usage
 
+### Posts
+
 - When you open the application, you will land on the the home page, where you can see all the posts made from you and your network.
 
     <img src="linkedin/public/linkedIn-home.png" alt="home">
@@ -67,6 +75,10 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
     <img src="linkedin/public/posts.gif" alt="home">
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Profile
+
 - By clicking on the avatar picture of the navigation bar, you can can access the profile page, where you can edit your details and update your picture.
 
     <img src="linkedin/public/profile-details.gif" alt="home">
@@ -74,6 +86,10 @@ This repo is a fork of the original team work, with some adjustments made in ord
 - Also you can create, delete and edit your work experience details.
 
     <img src="linkedin/public/profile-experience.gif" alt="home">
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Downloads
 
 - As an added feature, you are able to export your CV as .pdf and your experiences as .csv
 
