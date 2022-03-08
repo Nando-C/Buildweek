@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Nando-C/Buildweek2">
-    <img src="linkedin/public/linkedin-clone-logo.png" alt="Logo" width="180" height="120">
+    <img src="linkedin/public/linkedIn-logo.png" alt="Logo" height="100">
   </a>
 
 <h3 align="center">LinkedIn - Clone</h3>
@@ -73,6 +73,6 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
 ## Contact
 
-By [@Hernando Crespo](https://hernando-crespo.vercel.app/) - feel free to contact me!
+By [@Nando](https://hernando-crespo.vercel.app/) - feel free to contact me!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
