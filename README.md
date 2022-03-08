@@ -10,7 +10,7 @@
 <h3 align="center">LinkedIn - Clone</h3>
 
   <p align="center">
-    A LinkedIn clone project developed during Strive School's Full Stack course!
+    A project that clones LinkedIn, developed during Strive School's Full Stack course!
     <br />
     <br />
     <a href="https://my-linkedin-benchmarkm6.vercel.app/">View Demo</a>
@@ -40,10 +40,10 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Front-End part for a LinkedIn clone project, created as part of the Full Stack Master Camp at Strive School.
+Front-End for a LinkedIn clone project, created as part of the Full Stack Master Camp at Strive School.
 Developed in 4 days by a distributed team of 3 students.
 
-This repo is a fork of the original team work, with some adjustments made in order to connect it with the Back-End that you can find here: https://github.com/Nando-C/BuildWeek3.
+This repo is a fork of the original team work, with some adjustments made in order to connect it with the Back-End which you can find here:[LinkedIn's BackEnd](https://github.com/Nando-C/BuildWeek3)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
