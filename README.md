@@ -65,7 +65,7 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
 - Here you can create, edit and delete your posts.
 
-  <img src="linkedin/public/posts.gif" alt="home">
+  <img src="linkedin/public/posts.gif" alt="home" height="600">
 
 - To go to your profile, simply click on the avatar picture on the navigation bar.
 - From here you can edit your profile details and picture.
