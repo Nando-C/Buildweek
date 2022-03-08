@@ -67,11 +67,17 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
   <img src="linkedin/public/posts.gif" alt="home">
 
-- To go to your profile, simply click on the avatar picture on the navigation bar.
-- From here you can edit your profile details and picture.
-- Also you can create, edit and delete your work experience and the respective company's icon.
+- By clicking on the avatar picture of the navigation bar, you can can access the profile page, where you can edit your details and update your picture.
+
+<img src="linkedin/public/profile-details.gif" alt="home">
+
+- Also you can create, delete and edit your work experience details.
+
+<img src="linkedin/public/profile-experience.gif" alt="home">
 
 - As an added feature, you are able to export your CV as pdf and your experiences as .csv
+
+<img src="linkedin/public/profile-downloads.gif" alt="home">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
