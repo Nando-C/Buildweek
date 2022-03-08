@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Nando-C/Buildweek2">
-    <img src="linkedin/public/linkedin-clone-logo.png" alt="Logo" width="180" height="110">
+    <img src="linkedin/public/linkedin-clone-logo.png" alt="Logo" width="180" height="120">
   </a>
 
 <h3 align="center">LinkedIn - Clone</h3>
