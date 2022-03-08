@@ -61,23 +61,23 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
 - Once you open the application, you will land on the the home page, where you can see all the posts made from you and your network.
 
-  <img src="linkedin/public/linkedIn-home.png" alt="home">
+    <img src="linkedin/public/linkedIn-home.png" alt="home">
 
 - Here you can create, edit and delete your posts.
 
-  <img src="linkedin/public/posts.gif" alt="home">
+    <img src="linkedin/public/posts.gif" alt="home">
 
 - By clicking on the avatar picture of the navigation bar, you can can access the profile page, where you can edit your details and update your picture.
 
-<img src="linkedin/public/profile-details.gif" alt="home">
+    <img src="linkedin/public/profile-details.gif" alt="home">
 
 - Also you can create, delete and edit your work experience details.
 
-<img src="linkedin/public/profile-experience.gif" alt="home">
+    <img src="linkedin/public/profile-experience.gif" alt="home">
 
 - As an added feature, you are able to export your CV as pdf and your experiences as .csv
 
-<img src="linkedin/public/profile-downloads.gif" alt="home">
+    <img src="linkedin/public/profile-downloads.gif" alt="home">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
