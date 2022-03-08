@@ -60,9 +60,13 @@ This repo is a fork of the original team work, with some adjustments made in ord
 ## Usage
 
 - Once you open the application, you will land on the the home page, where you can see all the posts made from you and your network.
-  <br /><img src="linkedin/public/linkedIn-home.png" alt="home"><br />
+
+  <img src="linkedin/public/linkedIn-home.png" alt="home">
+
 - Here you can create, edit and delete your posts.
-  <br /><img src="linkedin/public/posts.gif" alt="home"><br />
+
+  <img src="linkedin/public/posts.gif" alt="home">
+
 - To go to your profile, simply click on the avatar picture on the navigation bar.
 - From here you can edit your profile details and picture.
 - Also you can create, edit and delete your work experience and the respective company's icon.
