@@ -10,7 +10,7 @@
 <h3 align="center">LinkedIn - Clone</h3>
 
   <p align="center">
-    A project that clones LinkedIn, developed during Strive School's Full Stack course!
+    A project that clones LinkedIn, developed during Strive School's Full Stack program!
     <br />
     <br />
     <a href="https://my-linkedin-benchmarkm6.vercel.app/">View Demo</a>
@@ -40,10 +40,10 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Front-End for a LinkedIn clone project, created as part of the Full Stack Master Camp at Strive School.
+This is the Front-End for a LinkedIn clone project, created as part of the Full Stack Master Camp at Strive School.
 Developed in 4 days by a distributed team of 3 students.
 
-This repo is a fork of the original team work, with some adjustments made in order to connect it with the Back-End which you can find here:[LinkedIn's BackEnd](https://github.com/Nando-C/BuildWeek3)
+This repo is a fork of the original team work, with some adjustments made in order to connect it with the Back-End, which was develped with a different team and can be found here: [LinkedIn's BackEnd](https://github.com/Nando-C/BuildWeek3)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -60,6 +60,7 @@ This repo is a fork of the original team work, with some adjustments made in ord
 ## Usage
 
 - Once you open the application, you will land on the the home page, where you can see all the posts made from you and your network.
+  [![linkedIn home Screen Shot]linkedin/public/linkedIn-home.png](https://my-linkedin-benchmarkm6.vercel.app/)
 - Here you can create, edit and delete your posts.
 - To go to your profile, simply click on the avatar picture on the navigation bar.
 - From here you can edit your profile details and picture.
