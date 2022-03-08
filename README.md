@@ -59,7 +59,7 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
 ## Usage
 
-- Once you open the application, you will land on the the home page, where you can see all the posts made from you and your network.
+- When you open the application, you will land on the the home page, where you can see all the posts made from you and your network.
 
     <img src="linkedin/public/linkedIn-home.png" alt="home">
 
@@ -75,7 +75,7 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
     <img src="linkedin/public/profile-experience.gif" alt="home">
 
-- As an added feature, you are able to export your CV as pdf and your experiences as .csv
+- As an added feature, you are able to export your CV as .pdf and your experiences as .csv
 
     <img src="linkedin/public/profile-downloads.gif" alt="home">
 
@@ -85,6 +85,6 @@ This repo is a fork of the original team work, with some adjustments made in ord
 
 ## Contact
 
-By [@Nando](https://hernando-crespo.vercel.app/) - feel free to contact me!
+[@Nando](https://hernando-crespo.vercel.app/) - Get in touch and let me know what do you think of this project! 😉
 
 <p align="right">(<a href="#top">back to top</a>)</p>
